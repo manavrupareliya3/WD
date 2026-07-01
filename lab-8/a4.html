@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="Email">Email</label>
+        <input type="email" id="Email" required>
+        <br>
+        <label for="Mn">Mobile No.</label>
+        <input type="tel" id="Mn" pattern="[0-9]{10}" title="please enter the number" maxlength="10" required>
+        <br>
+        <label for="Pw">PassWord</label>
+        <input type="password" id="Pw" pattern="[A-Z][a-z][0-9]{6,}" required>
+        <br>
+        <label for="Fb">Feed Back</label>
+        <textarea id="Fd" minlength="5" maxlength="10" placeholder="feed back" required></textarea>
+
+        <br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
