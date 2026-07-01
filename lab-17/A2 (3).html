@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.card-content p {
+    color: var(--light-text);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+    </style>
+</head>
+<body>
+    <div style="background-color: rgb(12, 12, 12); width: 100%; height: 80px;">
+        <div>
+            <img src="guitar.png" alt="a" height="80px">
+        </div>
+        <div>Sound AMP</div>
+    </div>
+
+    <section>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-content">
+                    
+                    <img src="Dj master.jpg" alt="a" class="card-img">
+                    <p>12/01/2024</p>
+                    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Night Laser Show</h3>
+                    <p>#hip-hop #mb #dance</p>
+
+                    <p>We are happy to announce this special laser show</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    
+                    <img src="Laser show.jpg" alt="b" class="card-img">
+                    <p>12/01/2024</p>
+                    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Live Music</h3>
+                    <p>#live #rock #alternative</p>
+
+                    <p>Special event for our rock fans! Live music Show</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    
+                    <img src="live music.jpg" alt="c" class="card-img">
+                    <p>12/01/2024</p>
+                    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">DJ-Master Class</h3>
+                    <p>#dj #master-class</p>
+                    <p>Dj wood smell will teach you new tricks: please sign up.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    
+                    <img src="night party.jpg" alt="d" class="card-img">
+                    <p>12/01/2024</p>
+                    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Best Night Party</h3>
+                    <p>#party #club</p>
+                    <p>Our traditional event: best hits all night long</p>
+                </div>
+            </div>
+    </section>
+</body>
+</html>
