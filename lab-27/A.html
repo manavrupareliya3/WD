@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Dashboard UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep: #161a23;
+            --bg-card: #1f232d;
+            --sidebar-bg: #1a1e27;
+            --text-muted: #8a92a6;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        /* Card Customization */
+        .card {
+            background-color: var(--bg-card);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Stat Colors */
+        .bg-blue { background-color: #3b5bdb !important; }
+        .bg-teal { background-color: #2b8a78 !important; }
+        .bg-orange { background-color: #e67e22 !important; }
+        .bg-red-split { background-color: #c0392b !important; }
+
+        /* Chart Placeholder */
+        .chart-container {
+            height: 200px;
+            width: 100%;
+            background: linear-gradient(to top, rgba(59, 91, 219, 0) 0%, rgba(59, 91, 219, 0.1) 100%);
+            border-bottom: 3px solid #3b5bdb;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        /* Search Bar */
+        .search-container input {
+            background-color: #252a35;
+            border: none;
+            color: white;
+            padding-left: 2.5rem;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+            <div class="d-flex align-items-center mb-5">
+                <div class="bg-white text-dark rounded p-1 me-2">
+                    <i class="fa-solid fa-square fs-5"></i>
+                </div>
+                <h5 class="mb-0 fw-bold">Dashbord</h5>
+            </div>
+
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link active" href="#"><i class="fa-solid fa-house-chimney me-2"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-user me-2"></i> Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-envelope me-2"></i> Messages</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-gear me-2"></i> Settings</a></li>
+                <li class="nav-item mt-4"><a class="nav-link" href="#"><i class="fa-solid fa-chart-pie me-2"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="search-container position-relative w-50">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="form-control" placeholder="Search..">
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="me-3 text-secondary">Profile room</span>
+                    <i class="fa-solid fa-circle-user fs-2"></i>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <div class="card p-3 bg-blue text-white">
+                        <h3 class="fw-bold mb-0">204</h3>
+                        <small class="opacity-75">Total Users</small>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card p-3 bg-teal text-white text-center">
+                        <h3 class="fw-bold mb-0">26</h3>
+                        <small class="opacity-75">Revenue</small>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card p-3 bg-orange text-white text-center">
+                        <h3 class="fw-bold mb-0">28</h3>
+                        <small class="opacity-75">New Orders</small>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card bg-red-split text-white overflow-hidden h-100">
+                        <div class="row g-0 h-100 text-center align-items-center">
+                            <div class="col-6 border-end border-white border-opacity-25 py-3">
+                                <h3 class="fw-bold mb-0">46</h3>
+                                <small class="opacity-75">Visitors</small>
+                            </div>
+                            <div class="col-6 py-3">
+                                <h3 class="fw-bold mb-0">86</h3>
+                                <small class="opacity-75">Failer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-7">
+                    <div class="card p-4 h-100">
+                        <h5 class="fw-bold">Overview</h5>
+                        <div class="chart-container rounded"></div>
+                        <div class="d-flex justify-content-between mt-3 text-secondary small">
+                            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card p-4 h-100">
+                        <h5 class="fw-bold mb-4">Recent Activity</h5>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center mb-3">
+                                <div class="p-1 rounded-circle bg-secondary me-3" style="width: 12px; height: 12px;"></div>
+                                <span class="text-secondary small">Bnozoole manages rejectrives</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <div class="p-1 rounded-circle bg-secondary me-3" style="width: 12px; height: 12px;"></div>
+                                <span class="text-secondary small">Boox call report aujew eve</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <div class="p-1 rounded-circle bg-secondary me-3" style="width: 12px; height: 12px;"></div>
+                                <span class="text-secondary small">Expendze new using suidor</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <div class="p-1 rounded-circle bg-secondary me-3" style="width: 12px; height: 12px;"></div>
+                                <span class="text-secondary small">Canvst buisineses at top-one-</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-md-7">
+                    <div class="card p-4">
+                        <h5 class="fw-bold mb-3">Sales Report</h5>
+                        <div class="bg-dark rounded mb-2" style="height: 40px; opacity: 0.3;"></div>
+                        <div class="bg-dark rounded" style="height: 40px; opacity: 0.3;"></div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card p-4">
+                        <h5 class="fw-bold mb-3">Recent Activity</h5>
+                        <div class="bg-dark rounded mb-2" style="height: 15px; width: 80%; opacity: 0.3;"></div>
+                        <div class="bg-dark rounded mb-2" style="height: 15px; width: 60%; opacity: 0.3;"></div>
+                        <div class="bg-dark rounded mb-2" style="height: 15px; width: 90%; opacity: 0.3;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="text-center mt-5 text-secondary small">
+                © 2024 Your Company
+            </footer>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>
