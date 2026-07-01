@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .red{
+        background-color: red;
+        height: 60px;
+        width: 200px;
+        border: 1px solid green;
+        color: white;  
+    }
+    .first{
+        float: right;
+        animation-name: manav2;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+    }
+    @media screen and (max-width:1300px) {
+        .red{
+            background-color: brown;
+            color: blue;
+            animation-name: manav;
+            animation-duration: 5s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+    }
+    @keyframes manav{
+        0%{
+            background-color: brown;
+            color: blue;
+        }
+        25%{
+            background-color: chocolate;
+            color: red;
+        }
+        50%{
+            background-color: rgb(160, 233, 64);
+            color: red;
+        }
+        75%{
+            background-color: rgb(82, 216, 55);
+            color: red;
+        }
+        100%{
+            background-color: rgb(63, 145, 221);
+            color: red;
+        }
+    }
+    
+    @media screen and(min-width:400px) {
+       @keyframes manav2{
+        0%{
+            background-color: brown;
+            color: blue;
+        }
+        25%{
+            background-color: chocolate;
+            color: red;
+        }
+        50%{
+            background-color: rgb(160, 233, 64);
+            color: red;
+        }
+        75%{
+            background-color: rgb(82, 216, 55);
+            color: red;
+        }
+        100%{
+            background-color: rgb(63, 145, 221);
+            color: red;
+        }
+    } 
+    }
+</style>
+<body>
+    <div>
+        <img src="./1.jpg" width="120px">
+        <nav class="first">
+            <a href="">Home </a>
+            <a href="">About </a>
+            <a href="">Contact </a>
+            <a href="">Login </a>
+        </nav>
+        <hr>
+    </div>
+    <div style="border: 1px solid black;">
+    <div style="border: 1; background-color: red; width: 200px;">
+        <div style="background-color: red; height: 30px; width: 200px; border: 1px solid green;">side bar</div><br>
+        <div class="red">Home</div><br>
+        <div class="red">Placement</div><br>
+        <div class="red">Recruitment</div><br>
+        <div class="red">Faculty</div><br>
+        <div class="red">News</div><br>
+    </div>
+    <div>
+     <div style="float: right;margin-top: -450px; margin-right: 1000px;"><img src="./1.jpg" width="120px"><br>manav</div>
+     <div style="float: right;margin-top: -450px; margin-right: 850px;"><img src="./1.jpg" width="120px"><br>manav</div>
+    </div>
+    <div>
+     <div style="float: right;margin-top: -350px; margin-right: 1000px;"><img src="./1.jpg" width="120px"><br>manav</div>
+     <div style="float: right;margin-top: -350px; margin-right: 850px;"><img src="./1.jpg" width="120px"><br>manav</div>
+     <div style="float: right;margin-top: -350px; margin-right: 700px;"><img src="./1.jpg" width="120px"><br>manav</div>
+     <div style="float: right;margin-top: -350px; margin-right: 550px;"><img src="./1.jpg" width="120px"><br>manav</div>
+     <div style="float: right;margin-top: -350px; margin-right: 400px;"><img src="./1.jpg" width="120px"><br>manav</div>
+    </div>
+    </div>
+    </div>
+    <div style="background-color: blue; height: 40px; font-size: larger; color: white;" align="center">
+        &copy;Darshan university-rajkot
+    </div>
+</body>
+</html>
