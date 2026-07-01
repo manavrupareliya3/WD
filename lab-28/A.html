@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: #17213c;
+            min-height: 100vh;
+            color: #fff;
+            padding-top: 20px;
+        }
+        .sidebar .menu-icon {
+            font-size: 1.5rem;
+            margin-left: 15px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        .sidebar .nav-link {
+            color: #a1a9bb;
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .sidebar .nav-link i {
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        /* Top Bar Styling */
+        .search-container {
+            position: relative;
+            max-width: 250px;
+        }
+        .search-container i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        .search-input {
+            background-color: #eef2f7;
+            border: none;
+            border-radius: 8px;
+            padding-left: 35px;
+            height: 40px;
+        }
+        .btn-add {
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Project Cards Styling */
+        .btn-new-project {
+            background-color: #3b5998;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+        }
+        .btn-new-project:hover {
+            background-color: #2d4578;
+            color: white;
+        }
+        .project-card {
+            border: none;
+            border-radius: 12px;
+            color: white;
+            padding: 20px;
+            height: 100%;
+        }
+        .bg-website { background-color: #3e64a7; }
+        .bg-mobile { background-color: #40485a; }
+        .bg-marketing { background-color: #443c68; }
+        
+        .progress-custom {
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        .progress-bar-custom {
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        
+        .card-icon {
+            opacity: 0.8;
+            margin-right: 8px;
+        }
+
+        /* Bottom Section Cards */
+        .content-card {
+            background-color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            height: 100%;
+        }
+        
+        /* Simple CSS SVG Line Chart Mockup */
+        .chart-container {
+            margin-top: 20px;
+            position: relative;
+        }
+        .chart-grid {
+            border-left: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            height: 180px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .chart-grid::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(transparent 99%, #f5f5f5 1%);
+            background-size: 100% 25%;
+        }
+        .chart-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpath d='M0,45 Q5,40 10,35 T25,35 T35,25 T45,30 T55,20 T65,22 T75,10 T85,15 T100,5' fill='none' stroke='%233e64a7' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+        }
+        .y-axis {
+            position: absolute;
+            left: -20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #666;
+            padding-bottom: 20px;
+        }
+        .x-axis {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Task List Styling */
+        .task-list {
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+        .task-list li {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+        
+        .footer-text {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar px-0">
+            <div class="menu-icon">
+                <i class="bi bi-list"></i>
+            </div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-file-earmark-bar-graph"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><i class="bi bi-kanban"></i> Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-layout-text-sidebar"></i> Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-people"></i> Team</a>
+                </li>
+                <li class="nav-item mt-4">
+                    <a class="nav-link" href="#"><i class="bi bi-gear"></i> Settings</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="col-md-10 px-md-5 py-4">
+            
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h1 class="fw-bold mb-0">Projects</h1>
+                <div class="d-flex gap-3">
+                    <div class="search-container">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control search-input" placeholder="Search...">
+                    </div>
+                    <button class="btn btn-add"><i class="bi bi-plus-lg"></i></button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="fw-bold mb-0">Active Projects</h4>
+                <button class="btn btn-new-project"><i class="bi bi-plus"></i> New Project</button>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="project-card bg-website">
+                        <h5 class="fw-bold mb-4">Website Redesign</h5>
+                        <div class="d-flex align-items-center mb-2" style="font-size: 0.9rem;">
+                            <i class="bi bi-terminal card-icon"></i> 12 Tasks
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style="font-size: 0.85rem; opacity: 0.9;">
+                            <i class="bi bi-calendar4 card-icon"></i> March 25, 2024
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="project-card bg-mobile">
+                        <h5 class="fw-bold mb-4">Mobile App</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-2" style="font-size: 0.9rem;">
+                            <div><i class="bi bi-journal-text card-icon"></i> April 10</div>
+                            <div class="fw-bold">50%</div>
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style="font-size: 0.85rem; opacity: 0.9;">
+                            April 10, 2024
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="project-card bg-marketing">
+                        <h5 class="fw-bold mb-4">Marketing Campaign</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-2" style="font-size: 0.9rem;">
+                            <div><i class="bi bi-check-circle card-icon"></i> 75%</div>
+                            <div class="fw-bold">75%</div>
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 75%; background-color: #a8a0d4;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style="font-size: 0.85rem; opacity: 0.9;">
+                            Progresses
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-7">
+                    <div class="content-card">
+                        <h5 class="fw-bold mb-4">Project Overview</h5>
+                        <div class="chart-container">
+                            <div class="y-axis">
+                                <span>8</span>
+                                <span>6</span>
+                                <span>4</span>
+                                <span>2</span>
+                                <span>0</span>
+                            </div>
+                            <div class="chart-grid ms-3">
+                                <div class="chart-line"></div>
+                            </div>
+                            <div class="x-axis ms-3">
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                                <span>Jun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="content-card">
+                        <h5 class="fw-bold mb-2">Upcoming Tasks</h5>
+                        <ul class="task-list">
+                            <li>Design new homepage</li>
+                            <li>Implement user login</li>
+                            <li>Update app dashboard</li>
+                            <li>Plan social media content</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center footer-text">
+                &copy; 2024 Your Company
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.css"></script>
+</body>
+</html>
